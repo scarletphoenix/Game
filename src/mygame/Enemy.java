@@ -2,7 +2,9 @@ package mygame;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 
 public class Enemy extends Entity{
 	
@@ -11,12 +13,12 @@ public class Enemy extends Entity{
 	private Dodge instance;
 	private int ix,iy;
 	Color customColor = new Color(200, 200, 200);
-	
+	Image im = Toolkit.getDefaultToolkit().createImage("snow.png");
 	public Enemy(Dodge instance, int x,int y)
 	{
 		super(x,y);
 		this.instance= instance;
-		box=new Rectangle(x,y,32,32);
+		box=new Rectangle(x,y,24,24);
 		ix=0;
 		iy=1;
 	}
@@ -31,7 +33,7 @@ public class Enemy extends Entity{
 		}
 		
 		g.setColor(customColor);
-		g.fillRect(box.x, box.y, box.width, box.height);
+		g.drawImage(im,box.x, box.y, box.width, box.height,null);
 	}
 	
 	public boolean isDead(){

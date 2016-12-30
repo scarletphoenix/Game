@@ -17,6 +17,7 @@ public class Dodge extends JPanel implements KeyListener{
 	private int level = 8;
 	private int threshold= 100;
 	private int i=1;
+	private boolean gameNotStarted = true;
 //	private Immunity immune;
 	boolean timeForImmunity = false;
 	Random r = new Random();
@@ -49,12 +50,19 @@ public class Dodge extends JPanel implements KeyListener{
 		g.drawRect(0, 0, getWidth(), getHeight());
 		g.drawImage(img, 0, 0, getWidth(),getHeight(), null);
 		
+		while(gameNotStarted){
+			g.setColor(Color.black);
+			g.setFont(new Font("Century Gothic", Font.BOLD,24));
+			g.drawString("Press Enter to start", 300, 200);
+			
+		}
+		
 		if(score/1000>threshold*i){
 			level+=3;
 			manager = new EnemyManager(this,level);
 			player.life= 5;	
 			i++;
-		}	
+		}
 		
 		if(!isGameOver){
 		
@@ -117,13 +125,15 @@ public class Dodge extends JPanel implements KeyListener{
 				player.setXD(1);
 		}
 	
-		
+		if(c==KeyEvent.VK_UP)
+			gameNotStarted = false;
 	}
 
 	
 	public void keyReleased(KeyEvent e) {
 		player.setYD(0);
 		player.setXD(0);
+		gameNotStarted=false;
 	}
 
 	

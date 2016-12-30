@@ -14,13 +14,13 @@ public class Player extends Entity {
 	private Rectangle box;
 	int life = 5;
 	Color customColor = new Color(255,100,215);
-//	Image img = Toolkit.getDefaultToolkit().createImage("C:\\Users\\Rashmi\\Downloads\\Wallpapers\\snow.jfif");
+Image img = Toolkit.getDefaultToolkit().createImage("snowman.png");
 
 	
 	
 	public Player(Dodge instance,int x, int y) {
 		super(x, y);
-		w=32; h=32;
+		w=72; h=72;
 		this.instance=instance;
 		box= new Rectangle(x,y,w,h);
 	}
@@ -30,7 +30,7 @@ public class Player extends Entity {
 	{
 		move();
 		g.setColor(customColor);
-		g.fillOval(box.x, box.y, box.width, box.height);
+		g.drawImage(img,box.x, box.y, box.width, box.height,null);
 		g.setColor(Color.white);
 		g.drawString("Life/Lives:"+life, 20, 20);
 		
