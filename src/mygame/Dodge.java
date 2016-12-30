@@ -50,13 +50,13 @@ public class Dodge extends JPanel implements KeyListener{
 		g.drawRect(0, 0, getWidth(), getHeight());
 		g.drawImage(img, 0, 0, getWidth(),getHeight(), null);
 		
-		while(gameNotStarted){
+/*		while(gameNotStarted){
 			g.setColor(Color.black);
 			g.setFont(new Font("Century Gothic", Font.BOLD,24));
 			g.drawString("Press Enter to start", 300, 200);
 			
 		}
-		
+		*/
 		if(score/1000>threshold*i){
 			level+=3;
 			manager = new EnemyManager(this,level);
